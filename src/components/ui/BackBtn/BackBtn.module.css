@@ -1,0 +1,19 @@
+.backBtn {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    margin-bottom: 70px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.backBtn img {
+    padding-right: 10px;
+}
+
+.backBtn:hover {
+    color: #e692c0;
+}

@@ -52,3 +52,10 @@
     color: #ec71bf !important;
   }
   
+  @media (max-width: 530px) {
+    .menu {
+        min-width: 220px;
+        padding: 2px 5px;
+        font-size: 16px;
+    }
+  }

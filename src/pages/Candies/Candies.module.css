@@ -1,0 +1,22 @@
+.candiesContainer {
+    background-color: #f9f9f9;
+    background-image: url(./images/2150798860.jpg);
+    /* background-image: url(./images/fon.jpg); */
+    background-size: cover;
+    background-position: center;
+    /* border-radius: 50px;
+    margin: 100px; */
+    padding: 30px;
+    background-repeat: no-repeat;
+}
+
+.candiesBlock {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.candiesContent {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    gap: 25px;
+}

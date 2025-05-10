@@ -1,0 +1,26 @@
+.deliveryContainer {
+    background-color: #f9f9f9;
+    padding: 70px 30px;
+    line-height: 140%;
+}
+
+.deliveryContainer h2 {
+    padding-bottom: 50px;
+    font-size: (20px, 1.2vw, 24px) !important;
+}
+
+.deliveryBlock {
+    font-size: 18px;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.deliveryContent li {
+    list-style: none;
+}
+
+.deliveryContent p,
+.deliveryContent ul {
+    padding-bottom: 20px;
+}
+

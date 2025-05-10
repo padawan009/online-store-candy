@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import candyLogo from "./images/candylogo.png";
@@ -9,6 +9,12 @@ import phoneIcon from "./images/phone.svg";
 import loupeIcon from "./images/loupe.svg"
 
 function Navbar() {
+    const [isActive, setIsActive] = useState(false);
+
+    function toggleBurger() {
+        setIsActive(prev => !prev);
+    }
+
   return (
     <nav className={styles.navContainer}>
       <div className={styles.navbarBackground}></div>
@@ -22,23 +28,23 @@ function Navbar() {
             />
           </Link>
           <div className={styles.firstRow__right}>
-            <div className={styles.burgerMenu}>
+            <div className={`${styles.burgerMenu} ${isActive ? styles.active : ''}`} onClick={toggleBurger}>
               <span></span>
             </div>
             <div className={styles.phoneBlock}>
               <img src={phoneIcon} alt="phone icon" />
               <p>8 920 999 45 43</p>
             </div>
-            <Link to="cart">
+            <Link to="cart" className={styles.cart}>
               <img src={cartIcon} alt="cart icon" />
             </Link>
-            <Link to="profile">
+            <Link to="profile" className={styles.profile}>
               <img src={profileIcon} alt="profile icon" />
             </Link>
           </div>
         </div>
         <div className={styles.secondRow}>
-          <div className={styles.secondRow__left}>
+          <div className={`${styles.secondRow__left} ${isActive ? styles.active : ''}`}>
             <Dropdown />
             <Link to="about-project">
               О проекте<span></span>

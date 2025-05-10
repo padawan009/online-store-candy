@@ -62,10 +62,32 @@
 }
 
 .candyLogo {
-  max-width: 300px;
+  max-width: 16vw;
+  min-width: 250px;
   height: auto;
   filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.5));
+  transform: rotate(0);
+  padding: 10px;
 }
+
+.candyLogo:hover {
+    animation: anima 1s ease-in-out;
+}
+
+@keyframes anima {
+    0% {
+      transform: rotate(0deg);
+    }
+    30% {
+      transform: rotate(7deg); 
+    }
+    60% {
+      transform: rotate(-7deg); 
+    }
+    100% {
+      transform: rotate(0deg); 
+    }
+  }
 
 .firstRow {
   display: flex;
@@ -76,7 +98,32 @@
 .firstRow__right {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
+}
+
+.firstRow__right a {
+    transition: all 0.3s;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    padding-right: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart {
+    padding-right: 3px;
+}
+
+.profile {
+    padding-left: 5px;
+}
+
+.firstRow__right a:hover {
+    /* transform: scale(1.2); */
+    /* filter: drop-shadow(0 0 10px rgb(177, 26, 26)); */
+    background-color: rgb(190, 182, 186);
 }
 
 .phoneBlock {
@@ -195,13 +242,13 @@
 }
 
 .burgerMenu.active::before {
-  top: 50%;
-  transform: rotate(45deg);
+    top: 50%;
+    transform: rotate(45deg) translateY(-50%);
 }
 
 .burgerMenu.active::after {
-  bottom: 50%;
-  transform: rotate(-45deg);
+    bottom: 50%;
+    transform: rotate(-45deg) translateY(50%);
 }
 
 @media (max-width: 1024px) {
@@ -211,4 +258,68 @@
   .phoneBlock {
     display: none;
   }
+  .secondRow__left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    transform: translateY(-100%);
+    transition: all 1s ease-in-out;
+    opacity: 0;
+    width: 100%;
+  }
+  .secondRow__right {
+    align-self: flex-end;
+    margin-left: auto;
+  }
+  .firstRow__right {
+    align-self: flex-start;
+    margin-top: 20px;
+  }
+  .secondRow__left.active {
+    background-color: rgb(245, 142, 175);
+    height: 100%;
+    padding: 30px;
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  .navContainer {
+    padding: 0;
+  }
+  .navbarContent {
+    padding: 20px;
+  }
+  .firstRow__right {
+    z-index: 10;
+  }
+}
+
+
+@media (max-width: 530px) {
+    /* .secondRow__right {
+        position: absolute;
+    } */
+     .candyLogo {
+        min-width: 180px;
+        padding: 0px;
+     }
+     .firstRow__right {
+        margin-top: 15px;
+        gap: 12px;
+     }
+     .secondRow {
+        padding-bottom: 5px;
+     }
+     .secondRow__right form {
+        max-width: 170px;
+        z-index: -1;
+     }
+     .secondRow__right input {
+        width: 100%;
+     }
+     .navbarContent {
+        gap: 10px;
+     }
+
 }
