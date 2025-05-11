@@ -8,6 +8,7 @@
     margin-bottom: 70px;
     cursor: pointer;
     transition: all 0.2s;
+    color: rgb(91, 91, 91);
 }
 
 .backBtn img {

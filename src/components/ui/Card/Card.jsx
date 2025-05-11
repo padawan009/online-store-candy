@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./Card.module.css";
+import { Link } from "react-router-dom";
 
 import { useState } from "react";
-import cartIcon from "../../layout/Navbar/images/cart.svg";
+import cartIcon from "./images/cart.svg";
 
 const weightMap = {
   "200гр": 1,
@@ -20,6 +21,8 @@ const Card = ({
   weights = [],
   showCartButton = false,
   addToCart = () => {},
+  itemUrl,
+  category,
 }) => {
   const hasWeights = weights.length > 0;
   const [selectedWeight, setSelectedWeight] = useState(
@@ -27,7 +30,7 @@ const Card = ({
   );
 
   const multiplier = hasWeights ? weightMap[selectedWeight] : 1;
-  const finalPrice = showPrice ? parseInt(basePrice * multiplier, 10) : null;
+  const finalPrice = showPrice ? parseInt(basePrice * multiplier) : null;
 
   return (
     <div className={styles.productCard}>
@@ -56,7 +59,10 @@ const Card = ({
       )}
 
       <div className={styles.btnsBlock}>
-        <button className={styles.detailBtn}>Подробнее</button>
+        <Link to={`/catalog/${category}/${itemUrl}`}>
+          <button className={styles.detailBtn}>Подробнее</button>
+        </Link>
+
         {showCartButton && (
           <button
             className={styles.cartBtn}

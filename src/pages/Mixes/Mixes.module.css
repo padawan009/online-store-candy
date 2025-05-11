@@ -1,0 +1,40 @@
+.mixesContainer {
+  background-color: #f9f9f9;
+    background-image: url(./images/fon.jpg);
+    background-image: url(./images/fon.jpg);
+
+  background-size: cover;
+  background-position: center;
+  padding: 60px 30px;
+  background-repeat: no-repeat;
+}
+
+.mixesBlock {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.mixesContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+   grid-auto-rows: min-content;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+@media (max-width: 920px) {
+  .mixesContent {
+    grid-template-columns: repeat(auto-fit, minmax(270px, 40vw));
+  }
+}
+
+@media (max-width: 630px) {
+  .mixesContent {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 60vw));
+  }
+  .mixesContainer {
+    padding: 20px;
+  }
+}
+

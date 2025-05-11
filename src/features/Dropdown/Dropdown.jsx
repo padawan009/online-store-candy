@@ -27,16 +27,16 @@ function Dropdown() {
 
       {isOpen && (
         <div className={styles.menu}>
-          <Link to="mixes" onClick={closeDropdown} className={styles.menuItem}>
+          <Link to="catalog/mixes" onClick={closeDropdown} className={styles.menuItem}>
             Ассорти
           </Link>
-          <Link to="candies" onClick={closeDropdown} className={styles.menuItem}>
+          <Link to="catalog/candies" onClick={closeDropdown} className={styles.menuItem}>
             Конфеты
           </Link>
-          <Link to="gift-boxes" onClick={closeDropdown} className={styles.menuItem}>
+          <Link to="catalog/gift-boxes" onClick={closeDropdown} className={styles.menuItem}>
             Подарочные коробки
           </Link>
-          <Link to="candy-sets" onClick={closeDropdown} className={styles.menuItem}>
+          <Link to="catalog/candy-sets" onClick={closeDropdown} className={styles.menuItem}>
             Готовые наборы
           </Link>
           <Link onClick={closeDropdown} className={styles.menuItem}>
