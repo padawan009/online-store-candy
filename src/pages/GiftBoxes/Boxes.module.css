@@ -1,0 +1,14 @@
+.boxesContainer {
+  background-color: #f9f9f9;
+  background-image: url(./images/fon2.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 50px 30px;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 630px) {
+  .boxesContainer {
+    padding: 20px;
+  }
+}

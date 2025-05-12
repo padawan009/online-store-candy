@@ -5,8 +5,9 @@ import candy3 from "./images/2150897205.jpg";
 import candy4 from "./images/8020.jpg";
 import candy5 from "./images/2151284264.jpg";
 import candy6 from "./images/2147866208.jpg";
-import candy7 from "./images/2150799020.jpg";
+// import candy7 from "./images/2150799020.jpg";
 import candy8 from "./images/2150799014.jpg";
+import { createSlice } from "@reduxjs/toolkit";
 
 const uniqueCandies = [
   {
@@ -99,12 +100,18 @@ const uniqueCandies = [
   },
 ];
 
-const candiesArray = [];
+const initialState = [];
 
 for (let i = 0; i < 3; i++) {
   for (let j = 0; j < uniqueCandies.length; j++) {
-    candiesArray.push({ ...uniqueCandies[j], id: v4() });
+    initialState.push({ ...uniqueCandies[j], id: v4() });
   }
 }
 
-export default candiesArray;
+const candiesSlice = createSlice({
+  name: "candies",
+  initialState,
+  reducers: {},
+});
+
+export default candiesSlice.reducer;

@@ -7,6 +7,7 @@ import mix4 from "./images/2150799016.jpg"
 import mix5 from "./images/2150897141.jpg"
 import mix6 from "./images/2150897149.jpg"
 import mix7 from "./images/2150897151.jpg"
+import { createSlice } from "@reduxjs/toolkit";
 // import mix8 from "./images/2147689711.jpg"
 
 const uniqueMixes = [
@@ -89,12 +90,18 @@ const uniqueMixes = [
   },
 ];
 
-const mixesArray = [];
+const initialState = [];
 
 for (let i = 0; i < 3; i++) {
   for (let j = 0; j < uniqueMixes.length; j++) {
-    mixesArray.push({ ...uniqueMixes[j], id: v4() });
+    initialState.push({ ...uniqueMixes[j], id: v4() });
   }
 }
 
-export default mixesArray;
+const mixesSlice = createSlice({
+    name: "mixes",
+    initialState,
+    reducers: {},
+})
+
+export default mixesSlice.reducer;

@@ -18,3 +18,9 @@
 .backBtn:hover {
     color: #e692c0;
 }
+
+@media (max-width: 630px) {
+    .backBtn {
+        margin-bottom: 40px;
+    }
+}

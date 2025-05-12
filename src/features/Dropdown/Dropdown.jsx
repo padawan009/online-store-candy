@@ -39,7 +39,7 @@ function Dropdown() {
           <Link to="catalog/candy-sets" onClick={closeDropdown} className={styles.menuItem}>
             Готовые наборы
           </Link>
-          <Link onClick={closeDropdown} className={styles.menuItem}>
+          <Link to="catalog/other" onClick={closeDropdown} className={styles.menuItem}>
             Аксессуары и другое
           </Link>
         </div>

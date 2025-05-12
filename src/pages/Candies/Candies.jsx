@@ -1,13 +1,16 @@
 import React from "react";
 import styles from "./Candies.module.css";
+import pageStyles from "../../components/ui/CardList/CardList.module.css"
 import BackBtn from "../../components/ui/BackBtn/BackBtn";
-import Card from "../../components/ui/Card/Card";
-import candiesArray from "./dataCandies";
+import CardList from "../../components/ui/CardList/CardList";
 import Pagination from "../../components/ui/Pagination/Pagination";
 import BreadCrumb from "../../components/ui/BreadCrumb/BreadCrumb";
 import usePagination from "../../hooks/usePagination";
+import { useSelector } from "react-redux";
 
 function Candies() {
+  const candiesArray = useSelector(state => state.candies);
+
   const {
     currentPage,
     setCurrentPage,
@@ -17,25 +20,10 @@ function Candies() {
 
   return (
     <div className={styles.candiesContainer}>
-      <div className={styles.candiesBlock}>
+      <div className={pageStyles.pageBlock}>
         <BreadCrumb />
         <BackBtn />
-        <div className={styles.candiesContent}>
-          {currentItems.map((candy) => (
-            <Card
-              key={candy.id}
-              image={candy.img}
-              title={candy.title}
-              description={candy.description}
-              basePrice={candy.basePrice}
-              weights={candy.weights}
-              showPrice={candy.showPrice}
-              showCartButton={candy.showCartButton}
-              itemUrl={candy.itemUrl}
-              category={candy.category}
-            />
-          ))}
-        </div>
+        <CardList currentItems={currentItems}/>
         <Pagination 
         totalPages={totalPages}
         currentPage={currentPage}

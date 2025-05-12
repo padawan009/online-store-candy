@@ -25,3 +25,6 @@
      color: #e692c0;
 }
 
+.pagination button:disabled {
+      color: rgb(165, 165, 165);
+}

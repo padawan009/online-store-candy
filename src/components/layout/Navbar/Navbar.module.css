@@ -9,7 +9,6 @@
   box-shadow: 0 0 0 5px #e0c3fc90;
   /* border-radius: 0px 0px 20px 20px; */
   background-image: url(./images/34270642_8140454111111.jpg);
-  background-size: cover;
 }
 
 /* Вращающийся фон */
@@ -208,6 +207,7 @@
   background-color: white;
   border-radius: 3px;
   z-index: 2;
+  position: relative;
 }
 
 .burgerMenu::before,
@@ -297,7 +297,7 @@
         padding: 0px;
      }
      .firstRow__right {
-        margin-top: 15px;
+        margin-top: 10px;
         gap: 12px;
      }
      .secondRow {

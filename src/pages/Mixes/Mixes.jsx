@@ -1,13 +1,16 @@
 import React from 'react'
 import styles from "./Mixes.module.css"
-import mixesArray from './dataMixes';
+import pageStyles from "../../components/ui/CardList/CardList.module.css"
 import Pagination from '../../components/ui/Pagination/Pagination';
 import BackBtn from '../../components/ui/BackBtn/BackBtn';
 import BreadCrumb from '../../components/ui/BreadCrumb/BreadCrumb';
-import Card from '../../components/ui/Card/Card';
+import CardList from '../../components/ui/CardList/CardList';
 import usePagination from '../../hooks/usePagination';
+import { useSelector } from 'react-redux';
 
 function Mixes() {
+  const mixesArray = useSelector(state => state.mixes);
+
   const {
     currentPage,
     setCurrentPage,
@@ -17,25 +20,10 @@ function Mixes() {
 
   return (
     <div className={styles.mixesContainer}>
-      <div className={styles.mixesBlock}>
+      <div className={pageStyles.pageBlock}>
         <BreadCrumb />
         <BackBtn />
-        <div className={styles.mixesContent}>
-          {currentItems.map((mix) => (
-            <Card
-              key={mix.id}
-              image={mix.img}
-              title={mix.title}
-              description={mix.description}
-              basePrice={mix.basePrice}
-              weights={mix.weights}
-              showPrice={mix.showPrice}
-              showCartButton={mix.showCartButton}
-              itemUrl={mix.itemUrl}
-              category={mix.category}
-            />
-          ))}
-        </div>
+        <CardList currentItems={currentItems}/>
         <Pagination 
         totalPages={totalPages}
         currentPage={currentPage}

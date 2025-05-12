@@ -1,0 +1,28 @@
+
+.pageBlock {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.pageContent {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(270px, 311px));
+   grid-auto-rows: min-content;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+
+@media (max-width: 1200px) {
+  .pageContent {
+    grid-template-columns: repeat(auto-fit, minmax(270px, 30vw));
+  }
+}
+
+@media (max-width: 630px) {
+  .pageContent {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 60vw));
+  }
+}
+
