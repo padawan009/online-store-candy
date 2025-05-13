@@ -1,6 +1,6 @@
 .navContainer {
   position: relative;
-  z-index: 0;
+  z-index: 5;
   background-color: pink;
   font-size: clamp(16px, 2vw, 22px);
   padding: 20px;
@@ -10,23 +10,6 @@
   /* border-radius: 0px 0px 20px 20px; */
   background-image: url(./images/34270642_8140454111111.jpg);
 }
-
-/* Вращающийся фон */
-/* .navbarBackground {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 500%;  
-    height: 800%;
-    background-image: url('./images/34270642_8140454.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center top;
-    transform: translate(-50%, -50%);
-    animation: spin 40s linear infinite;
-    z-index: -1;
-  } */
-
 
 /* Контент */
 .navbarContent {

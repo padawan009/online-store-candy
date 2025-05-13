@@ -1,27 +1,32 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "./App.jsx";
-import Delivery from "../pages/Delivery/Delivery.jsx";
-import Home from "../pages/Home/Home.jsx";
-import Charity from "../pages/Charity/Charity.jsx";
-import About from "../pages/About/About.jsx";
-import Holidays from "../pages/Holidays/Holidays.jsx";
-import Cart from "../pages/Cart/Cart.jsx";
-import Profile from "../pages/Profile/Profile.jsx";
-import Candies from "../pages/Candies/Candies.jsx";
-import Mixes from "../pages/Mixes/Mixes.jsx";
-import Boxes from "../pages/GiftBoxes/Boxes.jsx";
-import Sets from "../pages/CandySets/Sets.jsx";
-import OtherItems from "../pages/Other/OtherItems.jsx"
-import ProductDetail from "../components/ui/ProductDetail/ProductDetail.jsx";
+import { lazy } from "react";
+
+const App = lazy(() => import("./App.jsx"));
+const Delivery = lazy(() => import("../pages/Delivery/Delivery.jsx"));
+const Home = lazy(() => import("../pages/Home/Home.jsx"));
+const Charity = lazy(() => import("../pages/Charity/Charity.jsx"));
+const About = lazy(() => import("../pages/About/About.jsx"));
+const Holidays = lazy(() => import("../pages/Holidays/Holidays.jsx"));
+const Cart = lazy(() => import("../pages/Cart/Cart.jsx"));
+const Profile = lazy(() => import("../pages/Profile/Profile.jsx"));
+const Candies = lazy(() => import("../pages/Candies/Candies.jsx"));
+const Mixes = lazy(() => import("../pages/Mixes/Mixes.jsx"));
+const Boxes = lazy(() => import("../pages/GiftBoxes/Boxes.jsx"));
+const Sets = lazy(() => import("../pages/CandySets/Sets.jsx"));
+const OtherItems = lazy(() => import("../pages/Other/OtherItems.jsx"));
+const ProductDetail = lazy(() => import("../components/ui/ProductDetail/ProductDetail.jsx"));
+const Catalog = lazy(() => import("../pages/Catalog/Catalog.jsx"));
+
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
+      { index: true, element: <Home />},
       {
         path: "catalog",
-        element: <Home />,
+        element: <Catalog />,
         children: [
           { path: "mixes", element: <Mixes /> },
           { path: "candies", element: <Candies /> },

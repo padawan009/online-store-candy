@@ -4,6 +4,7 @@ import boxesReducer from "../pages/GiftBoxes/boxesSlice";
 import mixesReducer from "../pages/Mixes/mixesSlice";
 import setsReducer from "../pages/CandySets/setsSlice"
 import otherReducer from "../pages/Other/otherSlice"
+import homeReducer from "../pages/Home/homeSlice"
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     mixes: mixesReducer,
     sets: setsReducer,
     other: otherReducer,
+    home: homeReducer,
   },
 });

@@ -1,0 +1,100 @@
+.charityBlockContainer {
+  background-color: rgb(237, 221, 226);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  position: relative;
+  height: 300px;
+}
+
+.picBlock {
+  position: absolute;
+  animation: animate 7s ease-in-out infinite alternate;
+  bottom: 14%;
+}
+
+.picBlock img {
+  transform: scale(1.3);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@keyframes animate {
+  0% {
+    left: -50%;
+    transform: rotate(-360deg);
+  }
+    60% {
+    left: 64%;
+    transform: rotate(0deg);
+  }
+  100% {
+    left: 64%;
+    transform: rotate(0deg);
+  }
+}
+
+.textBlock {
+  margin-left: 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.textBlock h2 {
+  font-size: clamp(30px, 2vw, 36px);
+  padding-bottom: 40px;
+}
+
+.checkboxBlock {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-bottom: 20px;
+}
+
+.checkboxBlock div {
+  display: flex;
+  font-size: 18px;
+  height: 100%;
+  gap: 5px;
+}
+
+.bottomBlock {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.textOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 192, 203);
+  color: white;
+  /* padding: 10px 20px; */
+  /* width: 150px;
+  height: 150px; */
+  text-wrap: wrap;
+  font-size: 26px;
+  font-weight: 700px;
+  line-height: 30px;
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+  text-align: center;
+  border-radius: 50%;
+  margin: auto;
+  box-shadow: 0px 0px 20px 30px rgba(255, 192, 203, 0.911);
+  padding: 30px;
+  width: 70%;
+}
+
+/* Показываем текст в конце анимации */
+.picBlock.show-text .textOverlay {
+  opacity: 1;
+}
