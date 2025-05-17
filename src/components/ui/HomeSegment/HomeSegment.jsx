@@ -11,10 +11,12 @@ function HomeSegment({ title, arr, linkTo }) {
     <section className={styles.segment}>
       <div className={styles.segmentHeader}>
         <p>{title}</p>
-        <Link to={linkTo}>
-          Еще
-          <img src={arrowIcon} alt="arrow icon" />
-        </Link>
+        {linkTo && (
+          <Link to={linkTo}>
+            Еще
+            <img src={arrowIcon} alt="arrow icon" />
+          </Link>
+        )}
       </div>
       <CardList currentItems={previewArr} />
     </section>

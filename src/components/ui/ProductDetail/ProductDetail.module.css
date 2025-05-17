@@ -1,0 +1,211 @@
+.productDetailContainer {
+  padding: 50px 30px 100px;
+  background-image: url(./images/fon4.jpg);
+  background-size: cover;
+}
+
+.productDetailCard {
+  display: flex;
+  gap: 30px;
+  height: 558px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0px 0px 7px 0px rgba(255, 255, 255, 1);
+}
+
+.productDetailCard img {
+  background-color: white;
+  border-radius: 20px;
+  height: 100%;
+  width: 558px;
+  object-fit: cover;
+}
+
+.topBlock h2 {
+  text-transform: uppercase;
+  font-size: clamp(28px, 1.82vw, 36px);
+  font-weight: 800;
+  color: #e692c0;
+  margin-bottom: 10px;
+}
+
+.topBlock p {
+  color: grey;
+}
+
+.productDetailContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+}
+.cardPrice {
+  font-size: clamp(28px, 1.82vw, 36px);
+  font-weight: 700;
+}
+
+.bottomBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.cardWeights {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.weightBtn {
+  font-size: 20px;
+  padding: 4px 8px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 600;
+  color: rgb(56, 56, 56);
+}
+
+.weightBtn.selected {
+  border: 2px solid rgb(255, 209, 217);
+}
+.counterRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.counterRow span {
+  font-size: 20px;
+  font-weight: 700;
+}
+.counterBtn {
+  color: #e692c0;
+  border-radius: 5px;
+  background-color: white;
+  border: 2px solid #e692c0;
+  width: 25px;
+  height: 25px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.counterBtn:hover {
+  color: white;
+  background-color: #e692c0;
+}
+
+.bottomBlock p {
+  color: grey;
+}
+
+.actionBtns {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.buyBtn {
+  background-color: #e692c0;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  height: 45px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.buyBtn:hover {
+  background-color: rgb(172, 31, 120);
+}
+
+.cartBtn {
+  background-color: white;
+  color: #e692c0;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  border-radius: 10px;
+  width: 250px;
+  height: 45px;
+  font-size: 18px;
+  font-weight: 600;
+  border: 2px solid #e692c0;
+}
+
+.cartBtn:hover {
+  background-color: #e692c0;
+  color: white;
+}
+
+/* блок для DetailSegment */
+
+.detailSegmentBlock {
+    display: flex;
+    gap: 30px;
+}
+
+
+@media (max-width: 1024px) {
+  .productDetailCard {
+    flex-direction: column;
+    height: fit-content;
+    max-width: 75vw;
+    margin: 0 auto;
+  }
+  .productDetailCard img {
+    width: 100%;
+    height: 400px;
+  }
+  .detailSegmentBlock {
+    flex-direction: column;
+    display: block;
+    max-width: 75vw;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 550px) {
+  .productDetailContainer {
+    padding: 20px;
+  }
+  .productDetailCard {
+    max-width: 100vw;
+  }
+  .productDetailCard img {
+    height: 270px;
+  }
+  .actionBtns {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .buyBtn {
+    width: 100%;
+  }
+  .cartBtn {
+    width: 100%;
+  }
+  .cardWeights {
+    width: 100%;
+    gap: 0px;
+    justify-content: space-between;
+  }
+  .weightBtn {
+    font-size: clamp(16px, 1vw, 20px);
+  }
+  .bottomBlock {
+    gap: 15px;
+  }
+  .detailSegmentBlock {
+    max-width: 100vw;
+  }
+}

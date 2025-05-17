@@ -1,0 +1,100 @@
+.detailContainer {
+  background-color: white;
+  width: 100%;
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 7px 0px rgba(255, 255, 255, 1);
+  margin: 30px 0px 50px;
+}
+
+.header {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(77, 76, 76);
+}
+
+.contentBlock {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.contentBlock div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  max-width: 140px;
+  height: 100%;
+}
+
+.contentBlock img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.contentBlock p {
+  text-align: center;
+  text-wrap: wrap;
+  color: grey;
+}
+
+.bottomBlock {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottomBlock button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  color: #e692c0;
+}
+
+.bottomBlock button:disabled {
+  color: rgb(222, 222, 222);
+}
+
+@media (max-width: 1250px) {
+  .contentBlock img {
+    width: 80px;
+    height: 80px;
+  }
+  .detailContainer {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contentBlock div {
+    width: 100%;
+    max-width: 110px;
+  }
+  .detailContainer {
+    margin: 30px 0px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contentBlock {
+    max-width: max-content;
+    overflow: hidden;
+    padding: 20px 0px;
+  }
+  .bottomBlock button {
+    padding: 0px 15px;
+  }
+}
+
+@media (max-width: 550px) {
+  .detailContainer {
+    padding: 20px 0px;
+  }
+  .header {
+    padding: 0px 20px;
+  }
+}

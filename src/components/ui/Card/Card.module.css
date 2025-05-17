@@ -88,6 +88,7 @@
 
 .weightBtn.selected {
   border: 2px solid rgb(255, 209, 217);
+  /* background-color: white; */
 }
 
 .detailBtn {

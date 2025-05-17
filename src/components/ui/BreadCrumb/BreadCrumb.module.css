@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     margin: 50px 0px 30px;
+    flex-wrap: wrap;
 }
 
 .link {
@@ -12,11 +13,12 @@
     font-weight: 600;
     letter-spacing: 1px;
     transition: all 0.3s;
+    font-size: clamp(16px, 1vw, 18px);
 }
 
 .separator {
-    padding: 10px;
-    font-size: 15px;
+    padding: clamp(5px, 1vw, 10px);
+    font-size: clamp(12px, 1vw, 15px);
     text-align: center;
 }
 

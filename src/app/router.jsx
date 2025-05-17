@@ -40,6 +40,7 @@ export const router = createBrowserRouter([
       { path: "charity", element: <Charity /> },
       { path: "about-project", element: <About /> },
       { path: "holidays", element: <Holidays /> },
+      { path: "holidays/:itemUrl", element: <ProductDetail /> },
       { path: "profile", element: <Profile /> },
       { path: "cart", element: <Cart /> },
     ],
