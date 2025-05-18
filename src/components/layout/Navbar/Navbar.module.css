@@ -45,23 +45,23 @@
 }
 
 .candyLogo:hover {
-    animation: anima 1s ease-in-out;
+  animation: anima 1s ease-in-out;
 }
 
 @keyframes anima {
-    0% {
-      transform: rotate(0deg);
-    }
-    30% {
-      transform: rotate(7deg); 
-    }
-    60% {
-      transform: rotate(-7deg); 
-    }
-    100% {
-      transform: rotate(0deg); 
-    }
+  0% {
+    transform: rotate(0deg);
   }
+  30% {
+    transform: rotate(7deg);
+  }
+  60% {
+    transform: rotate(-7deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 
 .firstRow {
   display: flex;
@@ -76,28 +76,47 @@
 }
 
 .firstRow__right a {
-    transition: all 0.3s;
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    padding-right: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  transition: all 0.3s;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  padding-right: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cart {
-    padding-right: 3px;
+  padding-right: 3px;
+  position: relative;
+}
+
+.cart p {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -10px;
+  right: -10px;
+  font-size: 16px;
+  /* width: 28px;
+  height: 28px; */
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: rgb(172, 31, 120);
+  color: white;
+  font-weight: 800;
 }
 
 .profile {
-    padding-left: 5px;
+  padding-left: 5px;
 }
 
 .firstRow__right a:hover {
-    /* transform: scale(1.2); */
-    /* filter: drop-shadow(0 0 10px rgb(177, 26, 26)); */
-    background-color: rgb(190, 182, 186);
+  /* transform: scale(1.1); */
+  background-color: rgb(190, 182, 186);
+  background-color: #e692c0;
 }
 
 .phoneBlock {
@@ -217,13 +236,13 @@
 }
 
 .burgerMenu.active::before {
-    top: 50%;
-    transform: rotate(45deg) translateY(-50%);
+  top: 50%;
+  transform: rotate(45deg) translateY(-50%);
 }
 
 .burgerMenu.active::after {
-    bottom: 50%;
-    transform: rotate(-45deg) translateY(50%);
+  bottom: 50%;
+  transform: rotate(-45deg) translateY(50%);
 }
 
 @media (max-width: 1024px) {
@@ -270,34 +289,32 @@
   }
 }
 
-
 @media (max-width: 530px) {
-    /* .secondRow__right {
+  /* .secondRow__right {
         position: absolute;
     } */
-     .candyLogo {
-        min-width: 180px;
-        padding: 0px;
-     }
-     .firstRow__right {
-        margin-top: 10px;
-        gap: 12px;
-     }
-     .secondRow {
-        padding-bottom: 5px;
-     }
-     .secondRow__right form {
-        max-width: 170px;
-        z-index: -1;
-     }
-     .secondRow__right input {
-        width: 100%;
-     }
-     .navbarContent {
-        gap: 10px;
-     }
-       .secondRow__left {
-        gap: 20px;
-       }
-
+  .candyLogo {
+    min-width: 180px;
+    padding: 0px;
+  }
+  .firstRow__right {
+    margin-top: 10px;
+    gap: 12px;
+  }
+  .secondRow {
+    padding-bottom: 5px;
+  }
+  .secondRow__right form {
+    max-width: 170px;
+    z-index: -1;
+  }
+  .secondRow__right input {
+    width: 100%;
+  }
+  .navbarContent {
+    gap: 10px;
+  }
+  .secondRow__left {
+    gap: 20px;
+  }
 }

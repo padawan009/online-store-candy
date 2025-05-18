@@ -10,7 +10,7 @@
   height: 558px;
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
-  padding: 20px;
+  padding: 30px;
   box-shadow: 0px 0px 7px 0px rgba(255, 255, 255, 1);
 }
 
@@ -41,6 +41,7 @@
   justify-content: space-between;
   gap: 30px;
 }
+
 .cardPrice {
   font-size: clamp(28px, 1.82vw, 36px);
   font-weight: 700;
@@ -72,32 +73,6 @@
 
 .weightBtn.selected {
   border: 2px solid rgb(255, 209, 217);
-}
-.counterRow {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.counterRow span {
-  font-size: 20px;
-  font-weight: 700;
-}
-.counterBtn {
-  color: #e692c0;
-  border-radius: 5px;
-  background-color: white;
-  border: 2px solid #e692c0;
-  width: 25px;
-  height: 25px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.counterBtn:hover {
-  color: white;
-  background-color: #e692c0;
 }
 
 .bottomBlock p {
@@ -179,9 +154,11 @@
   }
   .productDetailCard {
     max-width: 100vw;
+    padding: 20px;
   }
   .productDetailCard img {
     height: 270px;
+    border-radius: 10px;
   }
   .actionBtns {
     flex-direction: column;
@@ -196,8 +173,6 @@
   }
   .cardWeights {
     width: 100%;
-    gap: 0px;
-    justify-content: space-between;
   }
   .weightBtn {
     font-size: clamp(16px, 1vw, 20px);

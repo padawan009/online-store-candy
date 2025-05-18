@@ -8,6 +8,8 @@ import homeReducer from "../pages/Home/homeSlice"
 import holidaysReducer from "../pages/Holidays/holidaysSlice"
 import cartReducer from "../pages/Cart/cartSlice"
 
+const savedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
 export const store = configureStore({
   reducer: {
     candies: candiesReducer,
@@ -19,4 +21,14 @@ export const store = configureStore({
     holidays: holidaysReducer,
     cart: cartReducer,
   },
+  preloadedState: {
+    cart: {
+      items: savedCart,
+    }
+  }
 });
+
+store.subscribe(() => {
+  const state = store.getState();
+  localStorage.setItem("cartItems", JSON.stringify(state.cart.items));
+})

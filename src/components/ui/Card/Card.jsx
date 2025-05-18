@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import { useState } from "react";
 import cartIcon from "./images/cart.svg";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../pages/Cart/cartSlice";
 
 const weightMap = {
   "200гр": 1,
@@ -20,7 +22,6 @@ const Card = ({
   showPrice = false,
   weights = [],
   showCartButton = false,
-  addToCart = () => {},
   itemUrl,
   category,
 }) => {
@@ -30,10 +31,34 @@ const Card = ({
   );
 
   const multiplier = hasWeights ? weightMap[selectedWeight] : 1;
-  const finalPrice = showPrice ? parseInt(basePrice * multiplier) : null;
+  const finalPrice = Math.round(basePrice * multiplier);
+  const [isAdded, setIsAdded] = useState(false);
+
+  const dispatch = useDispatch();
+
+  function handleAddToCart() {
+    dispatch(
+      addToCart({
+        title,
+        weight: selectedWeight,
+        price: finalPrice,
+        img: image,
+        itemUrl,
+        quantity: 1,
+      })
+    );
+
+    setIsAdded(true);
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 4000);
+  }
 
   return (
     <div className={styles.productCard}>
+      {isAdded && (
+        <p className={styles.cartModal}>Товар добавлен в корзину &#128151;</p>
+      )}
       <img src={image} alt={title} className={styles.productPic} />
       <div className={styles.cardHeader}>
         <h3>{title}</h3>
@@ -64,16 +89,7 @@ const Card = ({
         </Link>
 
         {showCartButton && (
-          <button
-            className={styles.cartBtn}
-            onClick={() =>
-              addToCart({
-                title,
-                weight: selectedWeight,
-                price: finalPrice,
-              })
-            }
-          >
+          <button className={styles.cartBtn} onClick={handleAddToCart}>
             <img src={cartIcon} alt="cart icon" />
           </button>
         )}

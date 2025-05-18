@@ -7,9 +7,12 @@ import cartIcon from "./images/cart.svg";
 import profileIcon from "./images/profile.svg";
 import phoneIcon from "./images/phone.svg";
 import loupeIcon from "./images/loupe.svg";
+import { useSelector } from "react-redux";
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
+
+  const quantity = useSelector((state) => state.cart.items.length);
 
   function toggleBurger() {
     setIsActive((prev) => !prev);
@@ -34,6 +37,7 @@ function Navbar() {
             </div>
             <Link to="cart" className={styles.cart}>
               <img src={cartIcon} alt="cart icon" />
+              {quantity > 0 && <p>{quantity}</p>}
             </Link>
             <Link to="profile" className={styles.profile}>
               <img src={profileIcon} alt="profile icon" />

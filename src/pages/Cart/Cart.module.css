@@ -1,0 +1,99 @@
+.cartContainer {
+  padding: 80px 30px;
+  background-color: #f9f9f9;
+}
+
+.cartContent {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.headerBlock {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+}
+
+.headerBlock button {
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #e692c0;
+  color: white;
+  padding: 6px 18px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 3px solid #e692c0;
+}
+
+.headerBlock button:hover {
+  border: 3px solid #e692c0;
+  background-color: transparent;
+  color: #e692c0;
+}
+
+.header {
+  font-size: 18px;
+  color: grey;
+}
+
+.picBlock {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto;
+}
+
+.picBlock h2 {
+  color: #e692c0;
+  font-size: clamp(32px, 3vw, 40px);
+  font-weight: 800;
+  margin-bottom: 50px;
+}
+
+.emptyCart {
+  margin: 0 auto;
+  transform: scale(1.5);
+}
+
+.totalBlock {
+  margin-left: auto;
+  text-align: right;
+  padding: 20px;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.totalBlock button {
+  border: none;
+  border-radius: 8px;
+  color: white;
+  background-color: #e692c0;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 10px 45px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.totalBlock p {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.totalBlock button:hover {
+  background-color: rgb(172, 31, 120);
+}
+
+@media (max-width: 420px) {
+  .totalBlock {
+    padding: 0px;
+    padding-top: 20px;
+  }
+}

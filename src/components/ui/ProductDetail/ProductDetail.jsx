@@ -7,7 +7,8 @@ import BreadCrumb from "../BreadCrumb/BreadCrumb";
 import BackBtn from "../BackBtn/BackBtn";
 import HomeSegment from "../HomeSegment/HomeSegment";
 import DetailSegment from "../DetailSegment/DetailSegment";
-import { addToCart } from "../../../pages/Cart/cartSlice"; 
+import Counter from "../Counter/Counter";
+import { addToCart } from "../../../pages/Cart/cartSlice";
 
 const weightMap = {
   "200гр": 1,
@@ -45,16 +46,41 @@ function ProductDetail() {
   );
   const [quantity, setQuantity] = useState(1);
 
+  const multiplier = hasWeights ? weightMap[selectedWeight] : 1;
+  const unitPrice = item.basePrice * multiplier;
+  const finalPrice = unitPrice * quantity;
+
   useEffect(() => {
     setQuantity(1);
     setSelectedWeight(hasWeights ? item.weights[0] : null);
   }, [itemUrl, hasWeights, item.weights]);
 
-  if (!item) return <div>Товар не найден</div>;
+  let detailArr1 = [];
+  let detailArr2 = [];
+  let detailText1 = "";
+  let detailText2 = "";
 
-  const multiplier = hasWeights ? weightMap[selectedWeight] : 1;
-  const unitPrice = item.basePrice * multiplier;
-  const finalPrice = item.showPrice ? unitPrice * quantity : null;
+  switch (item.category) {
+    case "candies":
+      detailArr1 = holidaysArr;
+      detailText1 = "Праздники, для которых подойдет данный товар";
+      detailArr2 = mixesArr;
+      detailText2 = "Ассорти, в которых есть данный товар";
+      break;
+    case "holidays":
+      detailArr1 = otherArr;
+      detailText1 = "К этому празднику подойдут следующие товары";
+      detailArr2 = setsArr;
+      detailText2 = "Наборы, подходящие к празднику";
+      break;
+    default:
+      detailArr1 = holidaysArr;
+      detailText1 = "Праздники, для которых подойдет данный товар";
+      detailArr2 = candiesArr;
+      detailText2 = "К этому товару так же подойдет";
+  }
+
+  if (!item) return <div>Товар не найден</div>;
 
   function handleAddToCart() {
     dispatch(
@@ -67,12 +93,12 @@ function ProductDetail() {
         img: item.img,
       })
     );
-  };
+  }
 
   function handleBuy() {
     handleAddToCart();
-    navigate('/cart');
-  };
+    navigate("/cart");
+  }
 
   return (
     <div className={styles.productDetailContainer}>
@@ -103,39 +129,33 @@ function ProductDetail() {
                 </div>
               )}
               {item.showPrice && (
-                <div className={styles.cardPrice}>{finalPrice} руб.</div>
+                <>
+                  <div className={styles.cardPrice}>{finalPrice} руб.</div>
+                  <p>Количество:</p>
+                  <Counter
+                    quantity={quantity}
+                    increment={() => setQuantity((q) => q + 1)}
+                    decrement={() => setQuantity((q) => Math.max(1, q - 1))}
+                  />
+                  <div className={styles.actionBtns}>
+                    <button onClick={handleBuy} className={styles.buyBtn}>
+                      Купить
+                    </button>
+                    <button
+                      onClick={handleAddToCart}
+                      className={styles.cartBtn}
+                    >
+                      Добавить в корзину
+                    </button>
+                  </div>
+                </>
               )}
-              <p>Количество:</p>
-              <div className={styles.counterRow}>
-                <button
-                  onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
-                  className={styles.counterBtn}
-                >
-                  −
-                </button>
-                <span className={styles.quantity}>{quantity}</span>
-                <button
-                  onClick={() => setQuantity(prev => prev + 1)}
-                  className={styles.counterBtn}
-                >
-                  +
-                </button>
-              </div>
-
-              <div className={styles.actionBtns}>
-                <button onClick={handleBuy} className={styles.buyBtn}>
-                  Купить
-                </button>
-                <button onClick={handleAddToCart} className={styles.cartBtn}>
-                  Добавить в корзину
-                </button>
-              </div>
             </div>
           </div>
         </div>
         <div className={styles.detailSegmentBlock}>
-          <DetailSegment text="Праздники, для которых подойдет данный товар" arr={holidaysArr}/>
-          <DetailSegment text="Праздники, для которых подойдет данный товар" arr={holidaysArr}/>
+          <DetailSegment text={detailText1} arr={detailArr1} />
+          <DetailSegment text={detailText2} arr={detailArr2} />
         </div>
 
         <HomeSegment arr={candiesArr} title="С этим товаром смотрят" />
