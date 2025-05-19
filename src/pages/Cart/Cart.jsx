@@ -20,7 +20,7 @@ function Cart() {
         <BackBtn />
         <div className={styles.headerBlock}>
           <p className={styles.header}>Корзина</p>
-          <button onClick={() => dispatch(clearCart())}>Очистить</button>
+          {cartItems.length > 0 && <button onClick={() => dispatch(clearCart())}>Очистить</button>}
         </div>
 
         {cartItems.length === 0 ? (
@@ -31,7 +31,7 @@ function Cart() {
         ) : (
           <>
             {cartItems.map((item) => (
-              <CartItem item={item} key={item.id} />
+              <CartItem item={item} key={`${item.title}${item.weight}`} />
             ))}
             <div className={styles.totalBlock}>
               <p>Всего: {totalPrice} руб.</p>

@@ -7,16 +7,32 @@ import cartIcon from "./images/cart.svg";
 import profileIcon from "./images/profile.svg";
 import phoneIcon from "./images/phone.svg";
 import loupeIcon from "./images/loupe.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import LogInModal from "../../ui/ProfileModal/ProfileModal";
+import { openModal } from "../../ui/ProfileModal/profileModalSlice";
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  // const [isLogInEnter, setIsLogInEnter] = useState(false);
+  // const [modalType, setModalType] = useState("");
 
   const quantity = useSelector((state) => state.cart.items.length);
+  const dispatch = useDispatch();
 
   function toggleBurger() {
     setIsActive((prev) => !prev);
   }
+
+  function toggleProfile() {
+    setIsOpen((prev) => !prev);
+  }
+
+  // function handleModal(type) {
+  //   setModalType(type);
+  //   setIsOpen(false);
+  //   setIsLogInEnter(true);
+  // }
 
   return (
     <nav className={styles.navContainer}>
@@ -39,9 +55,27 @@ function Navbar() {
               <img src={cartIcon} alt="cart icon" />
               {quantity > 0 && <p>{quantity}</p>}
             </Link>
-            <Link to="profile" className={styles.profile}>
+            <button className={styles.profile} onClick={toggleProfile}>
               <img src={profileIcon} alt="profile icon" />
-            </Link>
+            </button>
+            {isOpen && (
+              <div className={styles.profileModal}>
+                <Link
+                  to="profile"
+                  className={styles.enterBtn}
+                  onClick={() => (dispatch(openModal("enter")), setIsOpen(false))}
+                >
+                  Войти в аккаунт
+                </Link>
+                <Link
+                  to="profile"
+                  className={styles.logInBtn}
+                  onClick={() => (dispatch(openModal("register")), setIsOpen(false))}
+                >
+                  Зарегистрироваться
+                </Link>
+              </div>
+            )}
             <div
               className={`${styles.burgerMenu} ${
                 isActive ? styles.active : ""

@@ -73,9 +73,11 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  position: relative;
 }
 
-.firstRow__right a {
+.firstRow__right a,
+.firstRow__right button {
   transition: all 0.3s;
   width: 40px;
   height: 40px;
@@ -84,6 +86,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.firstRow__right a:hover,
+.firstRow__right button:hover {
+  background-color: #e692c0;
 }
 
 .cart {
@@ -113,10 +123,50 @@
   padding-left: 5px;
 }
 
-.firstRow__right a:hover {
-  /* transform: scale(1.1); */
-  background-color: rgb(190, 182, 186);
+.profileModal {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: white;
+  z-index: 100;
+  padding: 40px 20px;
+  gap: 15px;
+}
+
+.profileModal a {
+  border-radius: 10px;
+  width: 250px;
+  height: 45px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 18px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.enterBtn {
+  background-color: #e692c0 !important;
+  color: white;
+  font-weight: 600;
+  border: none;
+}
+
+.enterBtn:hover {
+  background-color: rgb(172, 31, 120) !important;
+}
+
+.logInBtn {
+  border: 3px solid #e692c0 !important;
+  background-color: white;
+  color: #e692c0;
+}
+
+.logInBtn:hover {
   background-color: #e692c0;
+  color: white;
 }
 
 .phoneBlock {
@@ -287,6 +337,9 @@
   .firstRow__right {
     z-index: 10;
   }
+  .profileModal {
+    margin-right: 10px;
+  }
 }
 
 @media (max-width: 530px) {
@@ -317,4 +370,5 @@
   .secondRow__left {
     gap: 20px;
   }
+
 }

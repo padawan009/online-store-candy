@@ -15,6 +15,7 @@ const weightMap = {
 };
 
 const Card = ({
+  id,
   image,
   title,
   description,
@@ -39,6 +40,7 @@ const Card = ({
   function handleAddToCart() {
     dispatch(
       addToCart({
+        id,
         title,
         weight: selectedWeight,
         price: finalPrice,

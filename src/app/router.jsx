@@ -14,7 +14,7 @@ const Mixes = lazy(() => import("../pages/Mixes/Mixes.jsx"));
 const Boxes = lazy(() => import("../pages/GiftBoxes/Boxes.jsx"));
 const Sets = lazy(() => import("../pages/CandySets/Sets.jsx"));
 const OtherItems = lazy(() => import("../pages/Other/OtherItems.jsx"));
-const ProductDetail = lazy(() => import("../components/ui/ProductDetail/ProductDetail.jsx"));
+const ProductDetail = lazy(() => import("../pages/ProductDetail/ProductDetail.jsx"));
 const Catalog = lazy(() => import("../pages/Catalog/Catalog.jsx"));
 
 

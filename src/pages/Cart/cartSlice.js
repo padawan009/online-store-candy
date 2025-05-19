@@ -10,6 +10,7 @@ const cartSlice = createSlice({
   reducers: {
     addToCart(state, action) {
       const newItem = action.payload;
+      console.log("addtocart payload:", action.payload);
 
       const existItem = state.items.find(
         (item) => item.title === newItem.title && item.weight === newItem.weight
@@ -18,19 +19,18 @@ const cartSlice = createSlice({
       if (existItem) existItem.quantity += newItem.quantity;
       else state.items.push(newItem);
     },
+
     clearCart(state) {
       state.items = [];
     },
 
     incrementQuantity(state, action) {
-      const { title, weight, price, img, itemUrl } = action.payload;
+      const { title, weight } = action.payload;
+      console.log("increment payload:", action.payload);
       const item = state.items.find(
         (item) => item.title === title && item.weight === weight
       );
       if (item) item.quantity += 1;
-      else {
-        state.items.push({ title, weight, price, img, itemUrl, quantity: 2 });
-      }
     },
 
     decrementQuantity(state, action) {
@@ -48,13 +48,13 @@ const cartSlice = createSlice({
       }
     },
 
-    setQuantity(state, action) {
-      const { title, weight, quantity } = action.payload;
-      const item = state.items.find(
-        (item) => item.title === title && item.weight === weight
-      );
-      if (item) item.quantity = quantity;
-    },
+    // setQuantity(state, action) {
+    //   const { title, weight, quantity } = action.payload;
+    //   const item = state.items.find(
+    //     (item) => item.title === title && item.weight === weight
+    //   );
+    //   if (item) item.quantity = quantity;
+    // },
   },
 });
 

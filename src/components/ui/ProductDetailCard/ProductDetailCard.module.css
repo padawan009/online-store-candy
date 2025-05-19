@@ -1,8 +1,3 @@
-.productDetailContainer {
-  padding: 50px 30px 100px;
-  background-image: url(./images/fon4.jpg);
-  background-size: cover;
-}
 
 .productDetailCard {
   display: flex;
@@ -11,6 +6,7 @@
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
   padding: 30px;
+  position: relative;
   box-shadow: 0px 0px 7px 0px rgba(255, 255, 255, 1);
 }
 
@@ -121,13 +117,6 @@
   color: white;
 }
 
-/* блок для DetailSegment */
-
-.detailSegmentBlock {
-    display: flex;
-    gap: 30px;
-}
-
 
 @media (max-width: 1024px) {
   .productDetailCard {
@@ -140,18 +129,36 @@
     width: 100%;
     height: 400px;
   }
-  .detailSegmentBlock {
-    flex-direction: column;
-    display: block;
-    max-width: 75vw;
-    margin: 0 auto;
-  }
 }
 
+.cartModal {
+ padding: 15px 15px;
+ /* width: 300px;
+ height: 45px; */
+  border-radius: 8px;
+    background-color: #e692c0;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: center;
+    animation: animate 4s linear;
+}
+
+@keyframes animate {
+  0% { opacity: 0; transform: translateX(30px); }
+  10% { opacity: 1; transform: translateX(0); }
+  90% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(30px); }
+}
+
+
 @media (max-width: 550px) {
-  .productDetailContainer {
-    padding: 20px;
-  }
   .productDetailCard {
     max-width: 100vw;
     padding: 20px;
@@ -179,8 +186,5 @@
   }
   .bottomBlock {
     gap: 15px;
-  }
-  .detailSegmentBlock {
-    max-width: 100vw;
   }
 }

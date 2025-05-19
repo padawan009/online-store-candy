@@ -35,14 +35,10 @@ function CartItem({ item }) {
             quantity={item.quantity}
             increment={() =>
               dispatch(
-                incrementQuantity({ title: item.title, weight: item.weight })
-              )
-            }
+                incrementQuantity({ title: item.title, weight: item.weight }))}
             decrement={() =>
               dispatch(
-                decrementQuantity({ title: item.title, weight: item.weight })
-              )
-            }
+                decrementQuantity({ title: item.title, weight: item.weight }))}
           />
         </div>
         <p className={styles.priceBlock}>

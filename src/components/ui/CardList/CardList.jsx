@@ -8,6 +8,7 @@ function CardList({ currentItems }) {
       {currentItems.map((item) => (
         <Card
           key={item.id}
+          id={item.id}
           image={item.img}
           title={item.title}
           description={item.description}

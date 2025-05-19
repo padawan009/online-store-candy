@@ -1,0 +1,120 @@
+.modalContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  max-width: 650px;
+  margin: 200px auto;
+  gap: 40px;
+  box-shadow: 0px 30px 50px 5px rgba(0, 0, 0, 0.05);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: clamp(22px, 2vw, 26px);
+}
+
+.modalHeader p {
+  font-weight: 700;
+  color: rgb(172, 31, 120);
+}
+
+.modalHeader button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #e692c0;
+}
+
+.modalHeader button:hover {
+  color: grey;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 18px;
+}
+
+.modalForm input {
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(238, 238, 238);
+  color: grey;
+  position: relative;
+}
+
+.modalForm input:focus {
+  outline: 2px solid #e692c0;
+}
+
+.modalBtns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.modalBtns button {
+  width: 100%;
+  height: 45px;
+  border-radius: 10px;
+  transition: all 0.3s;
+  cursor: pointer;
+  padding: 0px 20px;
+  text-wrap: nowrap;
+}
+
+.secondBtn {
+  background-color: #e692c0 !important;
+  color: white;
+  border: none;
+}
+
+.secondBtn:hover {
+  background-color: rgb(172, 31, 120) !important;
+}
+
+.firstBtn {
+  border: 3px solid #e692c0;
+  background-color: white;
+  color: #e692c0;
+}
+
+.firstBtn:hover {
+  background-color: #e692c0;
+  color: white;
+}
+
+.error {
+  color: rgb(255, 42, 110);
+  margin-top: -15px;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+@media (max-width: 520px) {
+  .modalBtns {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  .modalContainer {
+    gap: 30px;
+  }
+  .modalForm {
+    gap: 15px;
+  }
+  .modalContainer {
+    margin: 100px auto;
+  }
+}

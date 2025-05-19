@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./CharityBlock.module.css";
 import pic from "./images/2151284579-removebg-preview.png";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 function CharityBlock() {
   const [showText, setShowText] = useState(false);
