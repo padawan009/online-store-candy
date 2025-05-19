@@ -43,6 +43,11 @@ const userSlice = createSlice({
         state.error = null;
       }
     },
+    updateUser(state, action) {
+      if (state.currentUser) {
+        Object.assign(state.currentUser, action.payload);
+      }
+    },
     clearError(state) {
       state.error = null;
     },
@@ -57,5 +62,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { addUser, checkUser, clearError, openUserModal, exitUser } = userSlice.actions;
+export const { addUser, checkUser, clearError, openUserModal, exitUser, updateUser } = userSlice.actions;
 export default userSlice.reducer;

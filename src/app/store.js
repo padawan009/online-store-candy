@@ -9,8 +9,11 @@ import holidaysReducer from "../pages/Holidays/holidaysSlice"
 import cartReducer from "../pages/Cart/cartSlice"
 import loginModalReducer from "../pages/Profile/ui/LoginModal/loginModalSlice"
 import userReducer from "../pages/Profile/ui/UserModal/userSlice"
+import editUserReducer from "../pages/Profile/ui/EditModal/editSlice"
 
 const savedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
+const savedUsers = JSON.parse(localStorage.getItem("users")) || [];
+const savedCurrentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 
 export const store = configureStore({
   reducer: {
@@ -24,10 +27,17 @@ export const store = configureStore({
     cart: cartReducer,
     loginModal: loginModalReducer,
     user: userReducer,
+    edit: editUserReducer,
   },
   preloadedState: {
     cart: {
       items: savedCart,
+    },
+    user: {
+      users: savedUsers,
+      currentUser: savedCurrentUser,
+      error: null,
+      isUserOpen: false,
     }
   }
 });
@@ -35,4 +45,6 @@ export const store = configureStore({
 store.subscribe(() => {
   const state = store.getState();
   localStorage.setItem("cartItems", JSON.stringify(state.cart.items));
+  localStorage.setItem("users", JSON.stringify(state.user.users));
+  localStorage.setItem("currentUser", JSON.stringify(state.user.currentUser));
 })

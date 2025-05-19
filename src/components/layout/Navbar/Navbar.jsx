@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import candyLogo from "./images/candylogo.png";
 import Dropdown from "../../../features/Dropdown/Dropdown";
 import cartIcon from "./images/cart.svg";
@@ -9,10 +9,13 @@ import phoneIcon from "./images/phone.svg";
 import loupeIcon from "./images/loupe.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../../../pages/Profile/ui/LoginModal/loginModalSlice";
+import { openUserModal } from "../../../pages/Profile/ui/UserModal/userSlice";
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const currentUser = useSelector((state) => state.user.currentUser);
+  const navigate = useNavigate();
   // const [isLogInEnter, setIsLogInEnter] = useState(false);
   // const [modalType, setModalType] = useState("");
 
@@ -24,7 +27,11 @@ function Navbar() {
   }
 
   function toggleProfile() {
-    setIsLoginOpen((prev) => !prev);
+    if (currentUser) {
+      dispatch(openUserModal());
+      navigate("/profile");
+    } 
+    else setIsLoginOpen((prev) => !prev);
   }
 
   // function handleModal(type) {
@@ -57,7 +64,7 @@ function Navbar() {
             <button className={styles.profile} onClick={toggleProfile}>
               <img src={profileIcon} alt="profile icon" />
             </button>
-            {isLoginOpen && (
+            {isLoginOpen && !currentUser && (
               <div className={styles.profileModal}>
                 <Link
                   to="profile"

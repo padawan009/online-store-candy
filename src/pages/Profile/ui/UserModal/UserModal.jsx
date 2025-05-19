@@ -5,6 +5,7 @@ import profilePic from "./images/blank-user-circles66.png";
 import { useDispatch, useSelector } from "react-redux";
 import { exitUser } from "./userSlice";
 import { Link } from "react-router-dom";
+import { openEdit } from "../EditModal/editSlice";
 
 function UserModal() {
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ function UserModal() {
     <div className={styles.userContainer}>
       <h4>Аккаунт</h4>
       <div className={styles.userContent}>
-        <button className={styles.editBtn}>
+        <button className={styles.editBtn} onClick={() => dispatch(openEdit())}>
           <img src={editIcon} alt="edit icon" />
         </button>
         <div className={styles.userInfo}>
@@ -22,7 +23,7 @@ function UserModal() {
           <div>
             <h5>{fullname ? fullname : "Николаев Николай Николаевич"}</h5>
             <p className={styles.phoneNumber}>{phone}</p>
-            {email ? <p className={styles.email}>{email}</p> : <Link>Добавить e-mail</Link> }
+            {email ? <p className={styles.email}>{email}</p> : <Link onClick={() => dispatch(openEdit())}>Добавить e-mail</Link> }
           </div>
         </div>
         <div className={styles.userAddress}>
