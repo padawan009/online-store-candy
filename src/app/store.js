@@ -7,7 +7,8 @@ import otherReducer from "../pages/Other/otherSlice"
 import homeReducer from "../pages/Home/homeSlice"
 import holidaysReducer from "../pages/Holidays/holidaysSlice"
 import cartReducer from "../pages/Cart/cartSlice"
-import profileModalReducer from "../components/ui/ProfileModal/profileModalSlice"
+import loginModalReducer from "../pages/Profile/ui/LoginModal/loginModalSlice"
+import userReducer from "../pages/Profile/ui/UserModal/userSlice"
 
 const savedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
 
@@ -21,7 +22,8 @@ export const store = configureStore({
     home: homeReducer,
     holidays: holidaysReducer,
     cart: cartReducer,
-    profileModal: profileModalReducer,
+    loginModal: loginModalReducer,
+    user: userReducer,
   },
   preloadedState: {
     cart: {

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import styles from "./ProductDetailCard.module.css";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addToCart } from "../../../pages/Cart/cartSlice";
-import Counter from "../Counter/Counter";
-import useProductDetailData from "../../../hooks/useProductDetailData";
+import { addToCart } from "../../../Cart/cartSlice";
+import Counter from "../../../../components/ui/Counter/Counter";
+import useProductDetailData from "../../../../hooks/useProductDetailData";
 
 const weightMap = {
   "200гр": 1,

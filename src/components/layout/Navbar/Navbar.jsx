@@ -8,12 +8,11 @@ import profileIcon from "./images/profile.svg";
 import phoneIcon from "./images/phone.svg";
 import loupeIcon from "./images/loupe.svg";
 import { useDispatch, useSelector } from "react-redux";
-import LogInModal from "../../ui/ProfileModal/ProfileModal";
-import { openModal } from "../../ui/ProfileModal/profileModalSlice";
+import { openModal } from "../../../pages/Profile/ui/LoginModal/loginModalSlice";
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   // const [isLogInEnter, setIsLogInEnter] = useState(false);
   // const [modalType, setModalType] = useState("");
 
@@ -25,7 +24,7 @@ function Navbar() {
   }
 
   function toggleProfile() {
-    setIsOpen((prev) => !prev);
+    setIsLoginOpen((prev) => !prev);
   }
 
   // function handleModal(type) {
@@ -58,19 +57,23 @@ function Navbar() {
             <button className={styles.profile} onClick={toggleProfile}>
               <img src={profileIcon} alt="profile icon" />
             </button>
-            {isOpen && (
+            {isLoginOpen && (
               <div className={styles.profileModal}>
                 <Link
                   to="profile"
                   className={styles.enterBtn}
-                  onClick={() => (dispatch(openModal("enter")), setIsOpen(false))}
+                  onClick={() => (
+                    dispatch(openModal("enter")), setIsLoginOpen(false)
+                  )}
                 >
                   Войти в аккаунт
                 </Link>
                 <Link
                   to="profile"
                   className={styles.logInBtn}
-                  onClick={() => (dispatch(openModal("register")), setIsOpen(false))}
+                  onClick={() => (
+                    dispatch(openModal("register")), setIsLoginOpen(false)
+                  )}
                 >
                   Зарегистрироваться
                 </Link>

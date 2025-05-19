@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./CartItem.module.css";
-import Counter from "../Counter/Counter";
+import Counter from "../../../../components/ui/Counter/Counter";
 import { useDispatch } from "react-redux";
 import {
   incrementQuantity,
   decrementQuantity,
-} from "../../../pages/Cart/cartSlice";
+} from "../../cartSlice";
 
 function CartItem({ item }) {
   const finalPrice = item.price * item.quantity;

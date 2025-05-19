@@ -5,8 +5,8 @@ const initialState = {
     type: "",
 }
 
-const profileModalSlice = createSlice({
-    name: "profileModal",
+const loginModalSlice = createSlice({
+    name: "loginModal",
     initialState,
     reducers: {
         openModal(state, action) {
@@ -16,9 +16,9 @@ const profileModalSlice = createSlice({
         closeModal(state) {
             state.isOpen = false;
             state.type = null;
-        }
+        },
     }
 })
 
-export const { openModal, closeModal } = profileModalSlice.actions;
-export default profileModalSlice.reducer;
+export const { openModal, closeModal } = loginModalSlice.actions;
+export default loginModalSlice.reducer;

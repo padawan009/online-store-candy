@@ -3,7 +3,7 @@ import styles from "./Cart.module.css";
 import BackBtn from "../../components/ui/BackBtn/BackBtn";
 import { useDispatch, useSelector } from "react-redux";
 import cartPic from "./images/1527-removebg-preview.png";
-import CartItem from "../../components/ui/CartItem/CartItem";
+import CartItem from "./ui/CartItem/CartItem";
 import { clearCart } from "./cartSlice";
 
 function Cart() {
