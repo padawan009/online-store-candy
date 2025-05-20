@@ -45,22 +45,33 @@ const userSlice = createSlice({
     },
     updateUser(state, action) {
       if (state.currentUser) {
-        Object.assign(state.currentUser, action.payload);
+        const index = state.users.findIndex(user => user.phone === state.currentUser.phone);
+        if (index !== -1) {
+          state.users[index] = { ...state.users[index], ...action.payload };
+          state.currentUser = state.users[index];
+        }
       }
     },
+
     clearError(state) {
       state.error = null;
     },
     openUserModal(state) {
-        state.isUserOpen = true;
+      state.isUserOpen = true;
     },
     exitUser(state) {
-        state.currentUser = null;
-        state.isUserOpen = false;
+      state.currentUser = null;
+      state.isUserOpen = false;
     },
-
   },
 });
 
-export const { addUser, checkUser, clearError, openUserModal, exitUser, updateUser } = userSlice.actions;
+export const {
+  addUser,
+  checkUser,
+  clearError,
+  openUserModal,
+  exitUser,
+  updateUser,
+} = userSlice.actions;
 export default userSlice.reducer;

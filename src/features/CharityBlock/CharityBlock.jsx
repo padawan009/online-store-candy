@@ -14,11 +14,11 @@ useEffect(() => {
   setShowText(true);
   const initialLeftPause = setTimeout(() => setShowText(false), showDuration);
 
-  // 2. Первая пауза — справа (5.6s после загрузки)
+  // 2. Первая пауза — справа (5.5s после загрузки)
   const initialRightPause = setTimeout(() => {
     setShowText(true);
     setTimeout(() => setShowText(false), showDuration);
-  }, cycleDuration - showDuration); // 5600ms
+  }, cycleDuration - showDuration); // 5500ms
 
   // 3. Все остальные циклы
   const interval = setInterval(() => {

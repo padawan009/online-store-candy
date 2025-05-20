@@ -69,7 +69,6 @@ function LoginModal() {
           type="tel"
           placeholder="Телефон"
           maxLength={12}
-          minLength={11}
           // autoFocus
           value={phone}
           onChange={(e) => setPhone(e.target.value.replace(/[^\d+]/g, ""))}

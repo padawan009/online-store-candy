@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import cartPic from "./images/1527-removebg-preview.png";
 import CartItem from "./ui/CartItem/CartItem";
 import { clearCart } from "./cartSlice";
+import { openModal } from "../Profile/ui/LoginModal/loginModalSlice";
+import { useNavigate } from "react-router-dom";
+import { openPayment } from "../Delivery/ui/PaymentModal/paymentSlice";
 
 function Cart() {
   const cartItems = useSelector((state) => state.cart.items);
@@ -13,6 +16,19 @@ function Cart() {
     (total, item) => total + item.price * item.quantity,
     0
   );
+  const { currentUser } = useSelector(state => state.user);
+  const navigate = useNavigate();
+
+  function makeOrder() {
+    if (!currentUser) {
+      navigate('/profile');
+      dispatch(openModal());;
+    }
+    else {
+      navigate('/delivery-and-payment');
+      dispatch(openPayment());
+    }
+  }
 
   return (
     <div className={styles.cartContainer}>
@@ -35,7 +51,7 @@ function Cart() {
             ))}
             <div className={styles.totalBlock}>
               <p>Всего: {totalPrice} руб.</p>
-              <button>Оплатить</button>
+              <button onClick={makeOrder}>Оплатить</button>
             </div>
           </>
         )}

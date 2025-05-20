@@ -1,0 +1,190 @@
+.paymentModalContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0px;
+}
+
+.paymentModalContent {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+  gap: 40px;
+  box-shadow: 0px 30px 50px 5px rgba(0, 0, 0, 0.05);
+  width: 600px;
+}
+
+.paymentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: clamp(22px, 2vw, 24px);
+}
+
+.paymentHeader h4 {
+  color: rgb(61, 61, 61);
+}
+
+.paymentHeader button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #e692c0;
+  font-size: 28px;
+}
+
+.paymentHeader button:hover {
+  color: grey;
+}
+
+.charity {
+  color: #e692c0;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.paymentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 18px;
+}
+
+.paymentFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.paymentFooter p {
+  color: grey;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.paymentFooter span {
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.paymentFooter button {
+  background-color: #e692c0;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s;
+  cursor: pointer;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.paymentFooter button:hover {
+  background-color: rgb(172, 31, 120);
+}
+
+/* 3 модалка */
+
+.paymentBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.paymentBlock h5 {
+  color: rgb(80, 80, 80);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.paymentChoice {
+  display: flex;
+  gap: 10px;
+}
+
+.paymentChoice button {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid rgb(168, 168, 168);
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  transition: all 0.3s;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: start;
+  /* height: 100px; */
+}
+
+.paymentChoice button:hover,
+.paymentChoice button.selected {
+  border: 2px solid #e692c0;
+  background-color: rgb(243, 243, 243);
+  color: #e692c0;
+}
+
+.personalInfo {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  /* align-items: flex-start; */
+}
+
+.personalInfo p {
+  color: grey;
+  line-height: 110%;
+  font-size: 14px;
+  margin-top: 10px;
+  max-width: 450px;
+}
+
+/* 4 последняя модалка */
+
+.thanks {
+  background-color: #e692c0;
+  font-size: clamp(28px, 3vw, 36px);
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  padding: 70px;
+  border-radius: 0px 0px 20px 20px;
+}
+
+@media (max-width: 450px) {
+  .paymentModalContainer {
+    padding: 0px;
+  }
+  .paymentModalContent {
+    gap: 20px;
+    padding: 25px;
+  }
+  .paymentFooter {
+    flex-direction: column;
+    align-self: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .paymentHeader h4 {
+    font-size: 20px;
+  }
+  .charity {
+    margin-top: 0;
+    line-height: 100%;
+  }
+  .paymentHeader button {
+    font-size: 24px;
+  }
+  .paymentChoice {
+    flex-direction: column;
+  }
+  .personalInfo p {
+    font-size: 12px;
+  }
+}

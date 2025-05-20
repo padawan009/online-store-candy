@@ -1,0 +1,28 @@
+.inputStyle input{
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(238, 238, 238);
+  color: grey;
+  position: relative;
+  width: 100%;
+}
+
+.inputStyle input:focus {
+  outline: 2px solid #e692c0;
+}
+
+.inputStyle .error {
+  color: rgb(255, 42, 110);
+  /* margin-top: -15px; */
+  font-size: 14px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.inputStyle p {
+    font-size: 16px;
+    color: rgb(80, 80, 80);
+    margin-bottom: 5px;
+    margin-left: 3px;
+}

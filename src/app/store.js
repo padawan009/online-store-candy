@@ -10,6 +10,7 @@ import cartReducer from "../pages/Cart/cartSlice"
 import loginModalReducer from "../pages/Profile/ui/LoginModal/loginModalSlice"
 import userReducer from "../pages/Profile/ui/UserModal/userSlice"
 import editUserReducer from "../pages/Profile/ui/EditModal/editSlice"
+import paymentReducer from "../pages/Delivery/ui/PaymentModal/paymentSlice"
 
 const savedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
 const savedUsers = JSON.parse(localStorage.getItem("users")) || [];
@@ -28,6 +29,7 @@ export const store = configureStore({
     loginModal: loginModalReducer,
     user: userReducer,
     edit: editUserReducer,
+    payment: paymentReducer,
   },
   preloadedState: {
     cart: {
