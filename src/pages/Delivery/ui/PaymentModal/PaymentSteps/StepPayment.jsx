@@ -31,11 +31,15 @@ function StepPayment({
         </button>
       </div>
       <div className={styles.personalInfo}>
-        <input
-          type="checkbox"
-          checked={selected}
-          onChange={(e) => setSelected(e.target.checked)}
-        />
+        <label className={styles.customCheckbox}>
+          <input
+            type="checkbox"
+            checked={selected}
+            onChange={(e) => setSelected(e.target.checked)}
+          />
+          <span className={styles.checkmark}></span>
+        </label>
+
         <p>
           Оформляя заказ, я даю своё согласие на обработку персональных данных и
           подтверждаю ознакомление с договором-офертой.
