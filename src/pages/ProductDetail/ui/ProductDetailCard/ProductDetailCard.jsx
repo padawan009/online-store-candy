@@ -19,7 +19,7 @@ function ProductDetailCard() {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  const hasWeights = item.weights.length > 0;
+  const hasWeights = item.weights?.length > 0;
   const [selectedWeight, setSelectedWeight] = useState(
     hasWeights ? item.weights[0] : null
   );
