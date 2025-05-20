@@ -7,6 +7,7 @@ import StepAddress from "./PaymentSteps/StepAddress";
 import StepPayment from "./PaymentSteps/StepPayment";
 import StepFinal from "./PaymentSteps/StepFinal";
 import { closePayment } from "./paymentSlice";
+import { updateUser } from "../../../Profile/ui/UserModal/userSlice";
 
 function PaymentModal() {
   const cartItems = useSelector((state) => state.cart.items);
@@ -34,20 +35,22 @@ function PaymentModal() {
 
   const [modal, setModal] = useState(0);
   const [selected, setSelected] = useState(false);
-  const [selectedPayment, setSelectedPayment] = useState('');
+  const [selectedPayment, setSelectedPayment] = useState("");
   const dispatch = useDispatch();
 
   function onSubmit() {
-  if (modal === 2) {
-    if (!selectedPayment) {
-      alert("Пожалуйста, выберите способ оплаты");
-      return;
+    if (modal === 2) {
+      if (!selectedPayment) {
+        alert("Пожалуйста, выберите способ оплаты");
+        return;
+      }
+      if (!selected) {
+        alert("Необходимо согласие на обработку данных");
+        return;
+      } else {
+        dispatch(updateUser({ cartItems }));
+      }
     }
-    if (!selected) {
-      alert("Необходимо согласие на обработку данных");
-      return;
-    }
-  }
     if (modal < 3) setModal((prev) => prev + 1);
   }
 
@@ -61,7 +64,7 @@ function PaymentModal() {
           <div>
             <div className={styles.paymentHeader}>
               <h4>Оплата и доставка</h4>
-              <button onClick={() => dispatch(closePayment())} >&times;</button>
+              <button onClick={() => dispatch(closePayment())}>&times;</button>
             </div>
             <p className={styles.charity}>
               10% от стоимости Вашего заказа идут в фонд
@@ -69,9 +72,18 @@ function PaymentModal() {
           </div>
 
           <div className={styles.paymentMain}>
-            {modal === 0 && <StepUserInfo register={register} errors={errors} />}
+            {modal === 0 && (
+              <StepUserInfo register={register} errors={errors} />
+            )}
             {modal === 1 && <StepAddress register={register} errors={errors} />}
-            {modal === 2 && <StepPayment selected={selected} setSelected={setSelected} selectedPayment={selectedPayment} setSelectedPayment={setSelectedPayment} />}
+            {modal === 2 && (
+              <StepPayment
+                selected={selected}
+                setSelected={setSelected}
+                selectedPayment={selectedPayment}
+                setSelectedPayment={setSelectedPayment}
+              />
+            )}
           </div>
           <div className={styles.paymentFooter}>
             <p>
@@ -80,7 +92,9 @@ function PaymentModal() {
             <button type="submit">{modal < 2 ? "Дальше" : "Оплатить"}</button>
           </div>
         </form>
-      ) : <StepFinal />}
+      ) : (
+        <StepFinal />
+      )}
     </div>
   );
 }

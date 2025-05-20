@@ -8,7 +8,7 @@ import { clearCart } from "./cartSlice";
 import { openModal } from "../Profile/ui/LoginModal/loginModalSlice";
 import { useNavigate } from "react-router-dom";
 import { openPayment } from "../Delivery/ui/PaymentModal/paymentSlice";
-import { updateUser } from "../Profile/ui/UserModal/userSlice";
+// import { updateUser } from "../Profile/ui/UserModal/userSlice";
 
 function Cart() {
   const cartItems = useSelector((state) => state.cart.items);
@@ -27,7 +27,7 @@ function Cart() {
     }
     else {
       navigate('/delivery-and-payment');
-      dispatch(updateUser({cartItems}));
+      // dispatch(updateUser({cartItems}));
       dispatch(openPayment());
     }
   }
