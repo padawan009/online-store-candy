@@ -48,7 +48,8 @@ const userSlice = createSlice({
         const index = state.users.findIndex(user => user.phone === state.currentUser.phone);
         if (index !== -1) {
           state.users[index] = { ...state.users[index], ...action.payload };
-          state.currentUser = state.users[index];
+          state.currentUser = state.users[index]; 
+          console.log(state.currentUser);
         }
       }
     },
@@ -61,7 +62,7 @@ const userSlice = createSlice({
     },
     exitUser(state) {
       state.currentUser = null;
-      state.isUserOpen = false;
+      state.isUserOpen = false; 
     },
   },
 });
@@ -74,4 +75,4 @@ export const {
   exitUser,
   updateUser,
 } = userSlice.actions;
-export default userSlice.reducer;
+export default userSlice.reducer; 

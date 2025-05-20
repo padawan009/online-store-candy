@@ -5,9 +5,7 @@
   font-size: clamp(16px, 2vw, 22px);
   padding: 20px;
   width: 100vw;
-  /* background-size: 200% auto; */
   box-shadow: 0 0 0 5px #e0c3fc90;
-  /* border-radius: 0px 0px 20px 20px; */
   background-image: url(./images/34270642_8140454111111.jpg);
 }
 

@@ -9,3 +9,8 @@
     max-width: 1320px;
     margin: 0 auto;
 }
+
+.userOrderBlock {
+    display: flex;
+    gap: 30px;
+}
