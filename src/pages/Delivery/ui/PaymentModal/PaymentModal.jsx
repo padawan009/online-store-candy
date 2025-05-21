@@ -8,6 +8,7 @@ import StepPayment from "./PaymentSteps/StepPayment";
 import StepFinal from "./PaymentSteps/StepFinal";
 import { closePayment } from "./paymentSlice";
 import { updateUser } from "../../../Profile/ui/UserModal/userSlice";
+import { clearCart } from "../../../Cart/cartSlice";
 
 function PaymentModal() {
   const cartItems = useSelector((state) => state.cart.items);
@@ -49,6 +50,7 @@ function PaymentModal() {
         return;
       } else {
         dispatch(updateUser({ cartItems }));
+        dispatch(clearCart());
       }
     }
     if (modal < 3) setModal((prev) => prev + 1);

@@ -124,22 +124,14 @@
     filter: brightness(1.2);
 }
 
-@media (max-width: 700px) {
+
+
+@media (max-width: 710px) {
   .orderItemContent {
-    flex-direction: column;
     gap: 10px;
-  }
-  .leftBlock {
-    width: 100%;
-    justify-content: space-between;
   }
   .leftBlock__content {
     width: 100%;
-  }
-  .rightBlock {
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
   }
   .leftBlock img {
     width: 110px;
@@ -152,14 +144,15 @@
   }
 }
 
-@media (max-width: 420px) {
-  .rightBlock {
+@media (max-width: 550px) {
+  .orderItemContent {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+    gap: 20px;
+    padding: 20px;
   }
-  .leftBlock__content .priceBlock {
-    margin-top: 5px;
-    margin-bottom: auto;
+  .rightBlock {
+    width: 100%;
+    align-items:normal;
   }
 }
+

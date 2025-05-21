@@ -39,24 +39,33 @@
 }
 
 .picBlock {
-  width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 100px auto;
+  gap: 180px;
 }
 
 .picBlock h2 {
   color: #e692c0;
   font-size: clamp(32px, 3vw, 40px);
   font-weight: 800;
-  margin-bottom: 50px;
+}
+
+.picBlock div {
+  height: 100%;
+  object-fit: contain;
+  padding: 0px 50px;
 }
 
 .emptyCart {
   margin: 0 auto;
-  transform: scale(1.5);
+  height: auto;
+  transform: scale(1.8);
+  object-fit: contain;
+  max-width: 100%;
 }
 
 .totalBlock {
@@ -89,6 +98,15 @@
 
 .totalBlock button:hover {
   background-color: rgb(172, 31, 120);
+}
+
+@media (max-width: 550px) {
+  .emptyCart {
+    transform: scale(1.5);
+  }
+  .picBlock {
+    gap: 100px;
+  }
 }
 
 @media (max-width: 420px) {

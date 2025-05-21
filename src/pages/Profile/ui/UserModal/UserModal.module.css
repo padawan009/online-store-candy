@@ -115,3 +115,20 @@
   background-color: #e692c0;
   color: white;
 }
+
+@media (max-width: 550px) {
+  .userContent {
+    width: 100%;
+    padding: 20px;
+  }
+  .userInfo h5 {
+    font-size: 18px;
+  }
+  .userInfo {
+    gap: 10px;
+  }
+  .userInfo div p {
+    text-wrap: wrap;
+    font-size: 14px;
+  }
+}

@@ -14,3 +14,10 @@
     display: flex;
     gap: 30px;
 }
+
+@media(max-width: 1024px) {
+    .userOrderBlock {
+        flex-direction: column;
+        gap: 50px;
+    }
+}
