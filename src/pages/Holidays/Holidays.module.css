@@ -1,5 +1,4 @@
 .holidaysContainer {
-  /* background-color: antiquewhite; */
   padding: 50px 30px;
   background-image: url(./images/fonnn.jpg);
   background-repeat: no-repeat;
@@ -8,14 +7,26 @@
 
 .holidaysContent__block {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 300px));
-  grid-template-rows: auto;
-  gap: 25px;
-  height: max-content;
-  grid-auto-rows: min-content;
+  grid-template-columns: repeat(4, minmax(270px, 311px));
+   grid-auto-rows: min-content;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  gap: 25px;
 }
+
+
+@media (max-width: 1200px) {
+  .holidaysContent__block {
+    grid-template-columns: repeat(auto-fit, minmax(270px, 30vw));
+  }
+}
+
+@media (max-width: 630px) {
+  .holidaysContent__block {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 60vw));
+  }
+}
+
 
 @media (max-width: 630px) {
   .holidaysContainer {
