@@ -14,7 +14,7 @@
   height: max-content;
   grid-auto-rows: min-content;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 @media (max-width: 630px) {
